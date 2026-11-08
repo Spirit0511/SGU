@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Destiny Ship - Audio Interface</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем технический шрифт из Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="destiny-container">
+        <!-- Шапка интерфейса -->
+        <header class="destiny-header">
+            <span class="system-status">DESTINY INTERGALACTIC SENSOR ARRAY</span>
+            <h1>AUDIO ARCHIVE</h1>
+        </header>
+
+        <!-- Главный экран плеера -->
+        <main class="player-core">
+            <div class="glow-ring">
+                <button id="playBtn" class="chevron-btn">
+                    <span class="chevron-icon">▶</span>
+                </button>
+            </div>
+            
+            <div class="track-info">
+                <div id="trackTitle" class="marquee">СИГНАЛ НЕ ОБНАРУЖЕН</div>
+                <div id="trackArtist" class="sub-text">ОЖИДАНИЕ ДАННЫХ ИЗ СЕТИ ДРЕВНИХ</div>
+            </div>
+
+            <!-- Прогресс-бар в виде трубы Древних -->
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </main>
+
+        <!-- Нижняя панель управления -->
+        <footer class="destiny-footer">
+            <div class="controls-row">
+                <button id="prevBtn" class="sec-btn">◀◀</button>
+                <button id="openPlaylistBtn" class="main-action-btn">ДИСПЛЕЙ ПЛЕЙЛИСТА</button>
+                <button id="nextBtn" class="sec-btn">▶▶</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Полноэкранный плейлист -->
+    <div id="playlistModal" class="playlist-modal">
+        <div class="modal-header">
+            <span>БАЗА ДАННЫХ: ЛОКАЛЬНЫЕ ТРЕКИ</span>
+            <button id="closePlaylistBtn" class="close-btn">✖</button>
+        </div>
+        
+        <!-- Кнопка загрузки музыки с телефона -->
+        <div class="upload-section">
+            <label for="audioFileInput" class="upload-label">
+                + ЗАГРУЗИТЬ АУДИОФАЙЛЫ С ТЕЛЕФОНА
+            </label>
+            <input type="file" id="audioFileInput" accept="audio/*" multiple style="display: none;">
+        </div>
+
+        <div class="playlist-scroll" id="playlistContainer">
+            <!-- Сюда динамически добавляются треки -->
+            <div class="empty-playlist-msg">Файлы не загружены. Выберите треки из памяти устройства.</div>
+        </div>
+    </div>
+
+    <!-- Аудио элемент -->
+    <audio id="audioPlayer"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
